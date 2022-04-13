@@ -1,0 +1,36 @@
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 32px;
+  margin-bottom: 20px;
+  box-shadow: inset 0px -1px 0px rgb(41 41 41 / 13%);
+  padding-bottom: 20px;
+  color: #131313;
+}
+
+.button {
+  display: block;
+  font-size: 16px;
+  line-height: 20px;
+  color: #FFFFFF;
+  cursor: pointer;
+  outline: none;
+  background: #3C39EC;
+  border-radius: 6px;
+  border: none;
+  padding: 10px 24px;
+  width: 30%;
+  margin: 20px auto;
+  
+}
+
+.button:disabled {
+  background: gray;
+}

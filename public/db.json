@@ -1,0 +1,109 @@
+{
+  "crews": {
+    "code": 0,
+    "descr": "OK",
+    "data": {
+      "crews_info": [
+        {
+          "crew_id": 123,
+          "car_mark": "Chevrolet",
+          "car_model": "Lacetti",
+          "car_color": "синий",
+          "car_number": "Е814УА",
+          "driver_name": "Анохин",
+          "driver_phone": "7788",
+          "lat": 56.83732200722597,
+          "lon": 53.21234424069212,
+          "distance": 300
+        },
+        {
+          "crew_id": 125,
+          "car_mark": "Hyundai",
+          "car_model": "Solaris",
+          "car_color": "белый",
+          "car_number": "Ф567АС",
+          "driver_name": "Петров",
+          "driver_phone": "8899",
+          "lat": 56.856701330660115,
+          "lon": 53.22222462407947,
+          "distance": 600
+        },
+        {
+          "crew_id": 129,
+          "car_mark": "Volkswagen",
+          "car_model": "Passat",
+          "car_color": "бирюзовый",
+          "car_number": "А599КТ",
+          "driver_name": "Деточкин",
+          "driver_phone": "7788",
+          "lat": 56.8691886071684,
+          "lon": 53.207975907553475,
+          "distance": 532
+        },{
+          "crew_id": 133,
+          "car_mark": "Honda",
+          "car_model": "Civic",
+          "car_color": "черный",
+          "car_number": "О417МХ",
+          "driver_name": "Беляев",
+          "driver_phone": "7788",
+          "lat": 56.86854561755408,
+          "lon": 53.27609010925079,
+          "distance": 1025
+        },{
+          "crew_id": 245,
+          "car_mark": "Toyota",
+          "car_model": "Camry",
+          "car_color": "белый",
+          "car_number": "У836ЕМ",
+          "driver_name": "Сергеев",
+          "driver_phone": "7788",
+          "lat": 56.84911007271321,
+          "lon": 53.267860640476215,
+          "distance": 666
+        },{
+          "crew_id": 156,
+          "car_mark": "Kia",
+          "car_model": "Rio",
+          "car_color": "черный",
+          "car_number": "В281КО",
+          "driver_name": "Невский",
+          "driver_phone": "7788",
+          "lat": 56.85049971325339,
+          "lon": 53.20934254410873,
+          "distance": 174
+        },{
+          "crew_id": 319,
+          "car_mark": "Lada",
+          "car_model": "Kalina",
+          "car_color": "красный",
+          "car_number": "Р571ОН",
+          "driver_name": "Аверин",
+          "driver_phone": "7788",
+          "lat": 56.832629435669126,
+          "lon": 53.27779198807039,
+          "distance": 2586
+        },
+        {
+          "crew_id": 279,
+          "car_mark": "Mazda",
+          "car_model": "6",
+          "car_color": "коричневый",
+          "car_number": "К219МН",
+          "driver_name": "Трудолюбов",
+          "driver_phone": "7788",
+          "lat": 56.845663909603985,
+          "lon": 53.18529649837096,
+          "distance": 4444
+        }
+      ]
+    }
+  },
+  "order": {
+    "code": 0,
+    "descr": "OK",
+    "data": {
+      "order_id": 12345
+    }
+  }
+}

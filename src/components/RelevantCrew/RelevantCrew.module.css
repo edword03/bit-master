@@ -1,0 +1,50 @@
+.block {
+  display: flex;
+  align-items: center;
+  margin: 20px 0 20px;
+}
+
+.blockTitle {
+  font-size: 14px;
+  margin-right: 25px;
+}
+
+.card {
+  border: 2px solid #dcdcdc;
+  padding: 15px;
+  border-radius: 7px;
+  width: 250px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.carTitle {
+  font-size: 16px;
+  color: rgb(43, 43, 43);
+  margin-bottom: 5px;
+}
+
+.carIcon {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+
+.carColor {
+  font-size: 14px;
+  color: #c0c0c0;
+  margin-bottom: 10px;
+}
+
+.carNumber {
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  padding: 5px;
+  color: #777;
+  font-size: 14px;
+  font-weight: 700;
+  max-width: 100px;
+  width: 100%;
+  display: block;
+  text-align: center;
+}

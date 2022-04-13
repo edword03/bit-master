@@ -1,0 +1,14 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+}
+
+ul, li {
+  list-style: none;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
