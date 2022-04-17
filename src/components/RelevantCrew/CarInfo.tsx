@@ -1,11 +1,12 @@
 import React from 'react';
 import carIcon from '../../assets/images/svg/carIcon.svg';
 import { useSelector } from '../../services/hooks';
+import { getCrewListState } from '../../services/selectors';
 
 import styles from './RelevantCrew.module.css';
 
 export const CarInfo = () => {
-  const { crewList } = useSelector(state => state.crew);
+  const { crewList } = useSelector(getCrewListState);
   const { car_mark, car_model, car_color, car_number } = crewList[0];
 
   return (

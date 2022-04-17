@@ -1,34 +1,31 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import { YMaps } from 'react-yandex-maps';
 import { YMap, RelevantCrew, CrewList, Input } from '../';
-import { useSelector } from '../../services/hooks';
+import { useDispatch, useSelector } from '../../services/hooks';
+import { useActions } from '../../services/hooks/useActions';
 
 import styles from './App.module.css';
 
-import { ErrorStateType } from '../../types/errorTypes';
 import { fetchData } from '../../api';
 import { createOrderBody } from '../../utils';
+import { getErrorState, getMapState, getCrewListState } from '../../services/selectors';
 
 interface OrderType {
-  code: number
-  descr: string
+  code: number;
+  descr: string;
   data: {
-    order_id: number
-  }
+    order_id: number;
+  };
 }
 
 export const App = () => {
-  const { address, coords } = useSelector(state => state.map);
-  const [errorState, setErrorState] = useState<ErrorStateType>({
-    isError: false,
-    errorMessage: '',
-  });
+  const { address, coords } = useSelector(getMapState);
+  const { isError } = useSelector(getErrorState);
+  const { crewList } = useSelector(getCrewListState);
 
-  const { crewList } = useSelector(state => state.crew);
+  const { setErrorState } = useActions();
 
-  const handleErrorSate = useCallback((isError: boolean, errorMessage: string) => {
-    setErrorState(prev => ({ ...prev, isError, errorMessage }))
-  }, [])
+  const dispatch = useDispatch();
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,7 +37,7 @@ export const App = () => {
       );
       console.log('order: ', result);
     } else {
-      handleErrorSate(true, 'Это поле обязательное')
+      dispatch(setErrorState('Это поле обязательное'));
     }
   };
 
@@ -50,18 +47,18 @@ export const App = () => {
       <main>
         <form onSubmit={onSubmit}>
           <YMaps>
-            <Input errorState={errorState} handleErrorSate={handleErrorSate} />
+            <Input />
           </YMaps>
           {crewList.length > 0 && <RelevantCrew />}
           <div style={{ display: 'flex' }}>
-            <YMap handleErrorSate={handleErrorSate} />
+            <YMap />
             {crewList.length > 0 && <CrewList />}
           </div>
-          <button className={styles.button} disabled={errorState.isError}>
+          <button className={styles.button} disabled={isError}>
             Заказать
           </button>
         </form>
       </main>
     </div>
   );
-}
+};

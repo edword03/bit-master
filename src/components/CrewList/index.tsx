@@ -3,9 +3,10 @@ import { CrewItem } from './CrewItem';
 import { useSelector } from '../../services/hooks';
 
 import styles from './CrewList.module.css';
+import { getCrewListState } from '../../services/selectors';
 
 export const CrewList = () => {
-  const { crewList } = useSelector(state => state.crew);
+  const { crewList } = useSelector(getCrewListState);
 
   return (
     <section className={styles.section}>

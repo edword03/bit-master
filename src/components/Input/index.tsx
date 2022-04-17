@@ -1,20 +1,22 @@
 import React, { useEffect } from 'react';
 import { withYMaps } from 'react-yandex-maps';
+
 import { useDispatch, useSelector } from '../../services/hooks';
-import { setNewAddress } from '../../services/map/mapActions';
-import { ErrorStateType } from '../../types/errorTypes';
+import { useActions } from '../../services/hooks/useActions';
+
+import { getErrorState, getMapState } from '../../services/selectors';
 
 import styles from './Input.module.css';
 
 interface InputProps {
   ymaps?: any;
-  errorState: ErrorStateType;
-  handleErrorSate: (isError: boolean, errorMessage: string) => void;
 }
 
 export const Input: React.ComponentType<InputProps> = withYMaps(
-  ({ ymaps, errorState, handleErrorSate }) => {
-    const { address } = useSelector(state => state.map);
+  ({ ymaps }) => {
+    const { address } = useSelector(getMapState);
+    const { isError, errorMessage } = useSelector(getErrorState);
+    const { setNewAddress, clearErrorState } = useActions();
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -28,16 +30,16 @@ export const Input: React.ComponentType<InputProps> = withYMaps(
         suggestView.events.add('select', (e: any) => {
           const itemName = e.get('item').displayName.split(', ').slice(0, 2).join(', ');
           dispatch(setNewAddress(itemName));
-          handleErrorSate(false, '');
+          dispatch(clearErrorState());
         });
       }
-    }, [ymaps.SuggestView, ymaps, dispatch, handleErrorSate]);
+    }, [ymaps.SuggestView, ymaps, dispatch]);
 
     const onChangeInputValue = (event: React.ChangeEvent<HTMLInputElement>) => {
       let value = event.target.value;
 
       if (address.length > 0) {
-        handleErrorSate(false, '');;
+        dispatch(clearErrorState());
       }
 
       dispatch(setNewAddress(value));
@@ -52,10 +54,10 @@ export const Input: React.ComponentType<InputProps> = withYMaps(
               type="text"
               value={address}
               onChange={onChangeInputValue}
-              className={`${styles.input} ${errorState.isError ? styles.error : ''}`}
+              className={`${styles.input} ${isError ? styles.error : ''}`}
               id="suggest"
             />
-            {errorState.isError && <p className={styles.errorText}>{errorState.errorMessage}</p>}
+            {isError && <p className={styles.errorText}>{errorMessage}</p>}
           </div>
         </label>
       </>
